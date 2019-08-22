@@ -15,9 +15,9 @@
         + 3 hours, 3 parts
 
 
-################## 0. Introduction ##################
+*********************** 1. Introduction ***********************
 
-## 0.1 3 Vs of Big Data (大数据的三个特性)
+## 1.1 3Vs of Big Data (大数据的三个特性)
 
 + First 3 Vs
 	+ Volume, Variety, Velocity (高容量、多类型、高速度)
@@ -27,7 +27,7 @@
 	+ 准确性, 可视性, 合法性
 
 
-## 0.2 Big Data Processes
+## 1.2 Big Data Processes
 
 + Data Management
 	+ Acquisition and Recording (数据采集与记录)
@@ -36,8 +36,18 @@
 + Analytics
 	+ Modeling and Analysis
 	+ Interpretation
++ Big Data Analytical Techniques
+	+ Text, Audio, Video, Social Media and Predictive Analytics
 
-	
+## 1.3 Big Data Technologies Overview
+
++ Hadoop
+
++ Spark	
+
++ NoSQL
+
++ Elasticsearch
 
 
 
