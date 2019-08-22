@@ -15,7 +15,7 @@
         + 3 hours, 3 parts
 
 
-*********************** 1. Introduction ***********************
+* 1. Introduction 
 
 ## 1.1 3Vs of Big Data (大数据的三个特性)
 
