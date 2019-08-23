@@ -349,15 +349,83 @@
 	+ 总的来说，低延时，低成本，高可扩展性，架构的灵活性，半结构化数据，分布式计算
 
 + CAP Theorem
-	+ Consistency, Availability, Partition-tolerance
-	+ 一致性(Consistency) (所有节点在同一时间具有相同的数据)
-	+ 可用性(Availability) (保证每个请求不管成功或者失败都有响应)
-	+ 分隔容忍(Partition tolerance) (系统中任意信息的丢失或失败不会影响系统的继续运作)
+	+ 指出对于一个分布式计算系统来说，不可能同时满足以下三点:(最多只能同时较好的满足两个)
+		+ Consistency, Availability, Partition-tolerance
+		+ 一致性(Consistency) (所有节点在同一时间具有相同的数据)
+		+ 可用性(Availability) (保证每个请求不管成功或者失败都有响应)
+			System is available during software and hardware upgrades and node failures
+		+ 分隔容忍(Partition tolerance) (系统中任意信息的丢失或失败不会影响系统的继续运作)
+			A system can continue to operate in the presence of a network partitions.
+	+ 因此，根据 CAP 原理将 NoSQL 数据库分成了满足 CA 原则、满足 CP 原则和满足 AP 原则三大类:
+		+ CA - 单点集群，满足一致性，可用性的系统，通常在可扩展性上不太强大。
+		+ CP - 满足一致性，分区容忍性的系统，通常性能不是特别高。
+		+ AP - 满足可用性，分区容忍性的系统，通常可能对一致性要求低一些。
 
-+ BASR
++ BASE
+	+ BASE是NoSQL数据库通常对*可用性*及*一致性*的弱要求原则
+	+ 两种一致性:
+		+ strong consistency – ACID
+		+ weak consistency – BASE
 
++ Consistency Model
+	+ A consistency model determines rules for visibility and apparent order of updates
 
++ Eventual Consistency(最终一致性)
+	+ When no updates occur for a long period of time, eventually all updates will propagate through the system and all the nodes will be consistent
 
++ NoSql 数据库分类
+	+ key-value存储
+		+ handle massive load 
+		+ 可以通过key快速查询到其value。一般来说，存储不管value的格式，照单全收
+		+ API 查询 GET, PUT, DELETE等
+		+ 优点:
+			+ 飞快
+			+ 可扩展 very scalable
+			+ 简单模型 simple model
+			+ 最终一致性 eventual consistancy
+			+ 容错性 fault-tolerant
+		+ 缺点
+			+ 不能建立复杂模型
+
+	+ Column stores 列存储
+		+ 按列存储数据的。最大的特点是方便存储结构化和半结构化数据，方便做数据压缩，对针对某一列或者某几列的查询有非常大的IO优势。
+		+ Very sparse, most cells have null values
+		+ Comparison: RDBMS vs column-based NoSQL
+			+ RDBMS: must fetch data from several places on disk and glue together
+			  选择(Selection)时即使只涉及某几列，所有数据也都会被读取
+			+ Column-based NoSQL: only fetch column families of those columns that are required by a query
+			  查询时只有涉及到的列会被读取
+	+ Document stores 文档存储
+		+ 可以建立复杂模型
+		+ Tables: Similar to RDBMS, but handle semi-structured data
+	+ Graph databases 图存储
+		+ 图形关系的最佳存储
+		+ Focus on modeling the structure of data
+
++ Nosql 优点和缺点
+	+ 优点
+		+ Massive scalability
+		+ High availability 
+		+ Lower cost
+		+ predictable elasticity 
+		+ Schema flexibility, sparse & semi-structured data
+	+ 缺点
+		+ Doesn’t fully support relational features
+		+ Eventual consistency is not intuitive to program for
+		+ Not always easy to integrate with other applications that support SQL
+		+ Relaxed ACID (see CAP theorem) fewer guarantees
+
++ Conclusion
+	+ NOSQL database cover only a part of dataintensive cloud applications (mainly Web applications)
+
+## 6.2 Introduction to HBase
+
++ Basic
+	+ HBase的数据是存储于HDFS里面的
+	+ 分布式的、可伸缩的海量数据存储系统。
+	+ HBase常被用来存放一些结构简单，但数据量非常大的数据(通常在TB/PB级别)，如历史订单记录，日志数据，监控Metris数据等等，HBase提供了简单的基于Key值的快速查询能力。
+	+ HBase as a schema-less data store, 即, 每一行中，列的组成都是灵活的，行与行之间并不需要遵循相同的列定义.that is, it’s fluid — we can add to, subtract from or modify the schema as you we along
+	+ 
 
 
 
