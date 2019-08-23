@@ -425,7 +425,10 @@
 	+ 分布式的、可伸缩的海量数据存储系统。
 	+ HBase常被用来存放一些结构简单，但数据量非常大的数据(通常在TB/PB级别)，如历史订单记录，日志数据，监控Metris数据等等，HBase提供了简单的基于Key值的快速查询能力。
 	+ HBase as a schema-less data store, 即, 每一行中，列的组成都是灵活的，行与行之间并不需要遵循相同的列定义.that is, it’s fluid — we can add to, subtract from or modify the schema as you we along
-	+ 
+
++ When to use HBase
+	+ simple query but on multiple TB of data
+	+ need random write, random read, or both
 
 
 
